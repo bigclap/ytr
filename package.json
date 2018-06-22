@@ -1,0 +1,52 @@
+{
+  "name": "ytr",
+  "homepage": "https://github.com/bigclap/ytr.git",
+  "bugs": {
+    "url": "https://github.com/bigclap/ytr/issues/new"
+  },
+  "engines": {
+    "node": ">=0.10.3 <0.12",
+    "psql": ">=10"
+  },
+  "keywords": [
+    "koa",
+    "koa2",
+    "api",
+    "es6"
+  ],
+  "repository": "git@github.com:/bigclap/ytr",
+  "author": "Resation",
+  "license": "MIT",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index",
+    "start": "cross-env NODE_ENVIRONMENT=production node index",
+    "postinstall": "db-migrate db:create ytr_db -e install"
+  },
+  "dependencies": {
+    "@koa/cors": "^2.2.1",
+    "cross-env": "^5.1.4",
+    "db-migrate": "^0.11.1",
+    "db-migrate-pg": "^0.4.0",
+    "dotenv": "^5.0.1",
+    "global": "^4.3.2",
+    "knex": "^0.14.6",
+    "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-helmet": "^4.0.0",
+    "koa-logger": "^3.2.0",
+    "koa-respond": "^1.0.1",
+    "koa-router": "^7.4.0",
+    "pg": "^7.4.3"
+  },
+  "preferGlobal": true,
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-html": "^4.0.5",
+    "eslint-plugin-import": "^2.12.0",
+    "nodemon": "^1.17.3"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "default": "pg",
+  "pg": {
+    "driver": "pg",
+    "database": "ytr_db",
+    "user": "postgres",
+    "host": "localhost",
+    "password": "123"
+  },
+  "install": {
+    "driver": "pg",
+    "user": "postgres",
+    "host": "localhost",
+    "password": "123"
+  }
+}
