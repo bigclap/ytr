@@ -1,9 +1,0 @@
-{
-  "default": "pg",
-  "pg": {
-    "driver": "pg",
-    "user": "postgres",
-    "host": "localhost",
-    "password": "123"
-  }
-}

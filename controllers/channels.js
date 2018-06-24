@@ -1,4 +1,3 @@
-
 function getChannelsGroups(ctx) {
   const groups = {};
   ctx.ok({ groups });
@@ -15,9 +14,7 @@ function writeNewGroup(ctx) {
 }
 
 function writeChanelToGroup(ctx) {
-  const group = ctx.request.query.group;
-  const channel = ctx.request.query.channel;
-  ctx.ok({ channel, group });
+  ctx.ok({ test: 'test' });
 }
 
 

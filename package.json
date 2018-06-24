@@ -21,14 +21,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index",
-    "start": "cross-env NODE_ENVIRONMENT=production node index",
-    "postinstall": "db-migrate db:create ytr_db -e install"
+    "start": "cross-env NODE_ENVIRONMENT=production node index"
   },
   "dependencies": {
     "@koa/cors": "^2.2.1",
     "cross-env": "^5.1.4",
-    "db-migrate": "^0.11.1",
-    "db-migrate-pg": "^0.4.0",
     "dotenv": "^5.0.1",
     "global": "^4.3.2",
     "knex": "^0.14.6",
