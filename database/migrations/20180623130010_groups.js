@@ -1,11 +1,7 @@
-exports.up = (knex) => {
-  knex.schema.createTable('groups', (t) => {
-    t.increment();
-    t.string('keyword');
-    t.uuid('uid');
-  });
-};
+exports.up = (knex) => knex.schema.createTable('groups', (t) => {
+  t.increments();
+  t.string('keyword');
+  t.string('uid', 32);
+});
 
-exports.down = (knex) => {
-  knex.schema.dropTableIfExists('groups');
-};
+exports.down = (knex) => knex.schema.dropTableIfExists('groups');

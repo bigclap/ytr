@@ -5,8 +5,7 @@
     "url": "https://github.com/bigclap/ytr/issues/new"
   },
   "engines": {
-    "node": ">=0.10.3 <0.12",
-    "psql": ">=10"
+    "node": ">=0.10.3 <0.12"
   },
   "keywords": [
     "koa",
@@ -35,7 +34,8 @@
     "koa-logger": "^3.2.0",
     "koa-respond": "^1.0.1",
     "koa-router": "^7.4.0",
-    "pg": "^7.4.3"
+    "pg": "^7.4.3",
+    "pg-native": "^3.0.0"
   },
   "preferGlobal": true,
   "devDependencies": {

@@ -1,20 +1,29 @@
-function getChannelsGroups(ctx) {
-  const groups = {};
+const { addChannelToGroup, getAllGroupChannel } = require('../queries/channels');
+const { createGroup, getAllUserGroups } = require('../queries/groups');
+
+async function getChannelsGroups(ctx) {
+  const groups = await getAllUserGroups(ctx.request.query.uid);
   ctx.ok({ groups });
 }
 
-function getGroupChannels(ctx) {
-  const groups = ctx.request.query.group;
+async function getGroupChannels(ctx) {
+  const gid = ctx.params.id;
+  const groups = await getAllGroupChannel(gid);
   ctx.ok({ groups });
 }
 
-function writeNewGroup(ctx) {
-  const group = ctx.request.body;
+async function writeNewGroup(ctx) {
+  let group = ctx.request.body;
+  group = await createGroup(group);
   ctx.ok({ group });
 }
 
-function writeChanelToGroup(ctx) {
-  ctx.ok({ test: 'test' });
+async function writeChanelToGroup(ctx) {
+  let channel = ctx.request.body;
+  channel.gid = ctx.params.id;
+
+  channel = await addChannelToGroup(channel);
+  ctx.ok({ channel });
 }
 
 
