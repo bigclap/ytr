@@ -37,7 +37,6 @@
     "pg": "^7.4.3",
     "pg-native": "^3.0.0"
   },
-  "preferGlobal": true,
   "devDependencies": {
     "babel-eslint": "^8.2.3",
     "eslint": "^4.19.1",

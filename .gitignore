@@ -7,6 +7,9 @@ logs
 npm-debug.log*
 .node-xmlhttprequest*
 
+### Yarn ###
+yarn.lock
+
 # dotenv
 .env
 
