@@ -1,10 +1,11 @@
 exports.up = (knex) => knex.schema.createTable('channels', (t) => {
   t.increments();
-  t.string('link');
-  t.date('last_activity');
-  t.integer('subscribers');
-  t.integer('avg_views');
-  t.integer('key_videos');
+  t.string('channelId');
+  t.date('lastActivity');
+  t.integer('subscriberCount');
+  t.integer('avgViews');
+  t.integer('videoCount');
+  t.integer('keywordVideos');
 });
 
 exports.down = (knex) => knex.schema.dropTableIfExists('channels');

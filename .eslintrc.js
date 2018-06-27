@@ -1,7 +1,7 @@
 // http://eslint.org/docs/user-guide/configuring
 
 module.exports = {
-  "extends": "airbnb-base",
+  extends: "airbnb-base",
   root: true,
   parser: 'babel-eslint',
   parserOptions: {
@@ -24,5 +24,6 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     //reasign params
     'no-param-reassign': 0,
+    'no-unused-vars': 0
   }
 };

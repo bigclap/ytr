@@ -8,23 +8,15 @@ function getAllGroupChannel(gid) {
       .where('groups_id', gid));
 }
 
-async function addChannelToGroup(channel) {
-  const gid = channel.gid + 0;
-  channel = await knex('channels')
+async function addChannelToGroup(channels, gid) {
+  channels = await knex('channels')
     .returning('*')
-    .insert(
-      {
-        link: channel.link,
-        last_activity: channel.last_activity,
-        subscribers: channel.subscribers,
-        avg_views: channel.avg_views,
-        key_videos: channel.key_videos,
-      },
-    ).get(0);
+    .insert(channels);
+  const foreign = channels.map(channel => ({ groups_id: gid, channels_id: channel.id }));
   await knex('group_channels')
     .returning('*')
-    .insert({ groups_id: gid, channels_id: channel.id });
-  return channel;
+    .insert(foreign);
+  return channels;
 }
 
 module.exports = {

@@ -10,7 +10,7 @@ function createGroup(group) {
   const result = knex(t).returning('*').insert({
     uid: group.uid,
     keyword: group.keyword,
-  });
+  }).get(0);
   return result;
 }
 

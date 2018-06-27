@@ -8,28 +8,26 @@ async function getChannelsGroups(ctx) {
 
 async function getGroupChannels(ctx) {
   const gid = ctx.params.id;
-  const groups = await getAllGroupChannel(gid);
-  ctx.ok({ groups });
+  const channels = await getAllGroupChannel(gid);
+  ctx.ok({ channels });
 }
 
 async function writeNewGroup(ctx) {
-  let group = ctx.request.body;
+  let group = ctx.request.body.data;
   group = await createGroup(group);
-  ctx.ok({ group });
+  ctx.ok(group);
 }
 
-async function writeChanelToGroup(ctx) {
-  let channel = ctx.request.body;
-  channel.gid = ctx.params.id;
-
-  channel = await addChannelToGroup(channel);
-  ctx.ok({ channel });
+async function writeChanelsToGroup(ctx) {
+  let channels = ctx.request.body.data;
+  channels = await addChannelToGroup(channels, ctx.params.id);
+  ctx.ok(channels);
 }
 
 
 module.exports = {
   getChannelsGroups,
-  writeChanelToGroup,
+  writeChanelsToGroup: writeChanelsToGroup,
   getGroupChannels,
   writeNewGroup,
 };
