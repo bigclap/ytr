@@ -20,7 +20,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index",
-    "start": "cross-env NODE_ENVIRONMENT=production node index"
+    "start": "cross-env NODE_ENVIRONMENT=production node index",
+    "update-ext": "cd updates && git pull origin master && yarn install && yarn run build ",
+    "pack-ext": "crx pack build -p build.pem -o build.crx",
+    "build-ext": "yarn run update-ext && yarn run pack-ext"
   },
   "dependencies": {
     "@koa/cors": "^2.2.1",

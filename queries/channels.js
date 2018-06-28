@@ -8,7 +8,8 @@ function getAllGroupChannel(gid) {
       .where('groups_id', gid));
 }
 
-async function addChannelToGroup(channels, gid) {
+async function addChannelsToGroup(channels, gid) {
+  await knex('group_channels').where('groups_id', gid).delete();
   channels = await knex('channels')
     .returning('*')
     .insert(channels);
@@ -21,5 +22,5 @@ async function addChannelToGroup(channels, gid) {
 
 module.exports = {
   getAllGroupChannel,
-  addChannelToGroup,
+  addChannelsToGroup,
 };

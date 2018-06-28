@@ -1,5 +1,5 @@
-const { addChannelToGroup, getAllGroupChannel } = require('../queries/channels');
-const { createGroup, getAllUserGroups } = require('../queries/groups');
+const { addChannelsToGroup, getAllGroupChannel } = require('../queries/channels');
+const { createOrSelectGroup, getAllUserGroups } = require('../queries/groups');
 
 async function getChannelsGroups(ctx) {
   const groups = await getAllUserGroups(ctx.request.query.uid);
@@ -14,20 +14,20 @@ async function getGroupChannels(ctx) {
 
 async function writeNewGroup(ctx) {
   let group = ctx.request.body.data;
-  group = await createGroup(group);
+  group = await createOrSelectGroup(group);
   ctx.ok(group);
 }
 
 async function writeChanelsToGroup(ctx) {
   let channels = ctx.request.body.data;
-  channels = await addChannelToGroup(channels, ctx.params.id);
+  channels = await addChannelsToGroup(channels, ctx.params.id);
   ctx.ok(channels);
 }
 
 
 module.exports = {
   getChannelsGroups,
-  writeChanelsToGroup: writeChanelsToGroup,
+  writeChanelsToGroup,
   getGroupChannels,
   writeNewGroup,
 };
